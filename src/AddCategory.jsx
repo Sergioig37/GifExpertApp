@@ -14,7 +14,7 @@ export const AddCategory = ({ onAddCategory }) => {
     //Al hacer el submit recarga la página enter, para que no pase esto hay que evitarlo
     event.preventDefault();
     onAddCategory(inputValue);
-    setInputValue(" ");
+    setInputValue("");
   }
 
   return (
@@ -22,6 +22,7 @@ export const AddCategory = ({ onAddCategory }) => {
       <form onSubmit={onSubmit}>
         <input
           type="text"
+          value={inputValue}
           placeholder="Buscador gifs"
           onChange={onChangeInput}
         ></input>
