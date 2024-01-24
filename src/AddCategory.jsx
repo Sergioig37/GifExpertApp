@@ -9,8 +9,12 @@ export const AddCategory = ({ onAddCategory }) => {
     setInputValue(target.value);
   };
 
-  const onSubmit = () =>{
-    onAddCategory("Sergio");
+  const onSubmit = (event) =>{
+    console.log(inputValue);
+    //Al hacer el submit recarga la página enter, para que no pase esto hay que evitarlo
+    event.preventDefault();
+    onAddCategory(inputValue);
+    setInputValue(" ");
   }
 
   return (

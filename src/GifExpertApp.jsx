@@ -8,11 +8,11 @@ export const GifExpertApp = () => {
   const [categories, setcategories] = useState([" Categoría 1", "Categoría 2"]);
 
 
-    const addCategory = () =>{
+    const addCategory = (categoria) =>{
         //setCategories(["Categoría 3"])  <= esto borra el array entero y lo sustituye solo por eso
         
         //con este metodo de abajo concatenamos la categoría nueva con el array de categorías
-        setcategories([...categories, "Categoría " +(categories.length+1)]);
+        setcategories([...categories, categoria]);
     }
 
   return (
