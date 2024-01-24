@@ -9,7 +9,6 @@ export const GifExpertApp = () => {
 
 
     const addCategory = () =>{
-        console.log("Categoría agregada");
         //setCategories(["Categoría 3"])  <= esto borra el array entero y lo sustituye solo por eso
         
         //con este metodo de abajo concatenamos la categoría nueva con el array de categorías

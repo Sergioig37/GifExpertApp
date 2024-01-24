@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 export const AddCategory = ({ onAddCategory }) => {
+
   const [inputValue, setInputValue] = useState("");
 
   const onChangeInput = ({ target }) => {
@@ -9,7 +10,7 @@ export const AddCategory = ({ onAddCategory }) => {
   };
 
   const onSubmit = () =>{
-    console.log(inputValue);
+    onAddCategory("Sergio");
   }
 
   return (
