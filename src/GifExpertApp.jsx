@@ -28,9 +28,10 @@ export const GifExpertApp = () => {
       <button onClick={addCategory}>Agregar</button>
       <ol>
         {/**todo código que metamos aquí (return de html) tiene que ir entre llaves para que no pete todo */}
-        {categories.map((category) => {
+        {categories.map((category, index) => {
             {/**El list item tiene que tener una key porque sino da un warning */}
-          return <li key={category}> {category}</li>;
+            {/**La mejor llave es el index porque siempre va a ser único*/}
+          return <li key={index}> {category}</li>;
         })}
       </ol>
       {/* * Item de Gif * */}
