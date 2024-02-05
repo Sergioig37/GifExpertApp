@@ -1,35 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import {getGifs} from "../services/getGifs";
+import { useEffect } from "react";
 
 export const GifGrid = ({categoria}) => {
 
 
   //asincrono :  que el programa manda petición y espera a que llegue la respuesta
   //sincrono:  sigue incluso si no responde
-  const getGifs = async () =>{
-    const url = "https://api.giphy.com/v1/gifs/search?api_key=5Px5eEfD8XwSw6EBYY84ywknPkqEau6m&q=cheeseburgers&limit=10"
-    //fetch es una función para buscar
-    const respuesta = await fetch(url);
-   const {data} = await respuesta.json();
+
+  //cada vez que cambia el hook recarga el componente
+
+  const [imagenes, setImagenes] = useState([])
+
+  const getImagenes = async () =>{
+    const gifs = await getGifs(categoria);
+
+    setImagenes(gifs);
     
+  } 
 
-    const gifs = data.map( imagen =>(
-      {
-        id: imagen.id,
-        title: imagen.title,
-        url: imagen.url
+  //hace algo si se dan unas condiciones
+  useEffect(() => {
+    getImagenes();
+   
+  },//en vacío significa que es al cargar
+   [])
+  
 
-      }
-    )
-
-    )
-    console.log(gifs);
-  }
-
-  getGifs();
+ 
+  
+  
 
   return (
     <>
        <h4>{categoria}</h4>
+      {
+        imagenes.map(
+          ({id, title, url}) => (
+            <div key={id}>
+              
+              <img src={url} alt="" />
+            </div>
+          )
+        )
+      }
+       
     </>
   );
 };
