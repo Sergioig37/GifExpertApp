@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {getGifs} from "../services/getGifs";
 import { useEffect } from "react";
+import { Gifs } from "./Gifs";
 
 export const GifGrid = ({categoria}) => {
 
@@ -14,7 +15,7 @@ export const GifGrid = ({categoria}) => {
 
   const getImagenes = async () =>{
     const gifs = await getGifs(categoria);
-
+  
     setImagenes(gifs);
     
   } 
@@ -37,10 +38,8 @@ export const GifGrid = ({categoria}) => {
       {
         imagenes.map(
           ({id, title, url}) => (
-            <div key={id}>
-              
-              <img src={url} alt="" />
-            </div>
+
+            <Gifs id = {id} title= {title} url= {url}/>
           )
         )
       }

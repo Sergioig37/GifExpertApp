@@ -10,10 +10,12 @@ export const getGifs = async (category) =>{
         id: imagen.id,
         title: imagen.title,
         url: imagen.images.downsized.url,
-
+        
       }
     )
+    
 
     )
+    console.log(gifs)
     return gifs;
   }
